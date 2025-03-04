@@ -1,12 +1,18 @@
 import 'dart:io';
+import 'dart:math';
 
+int generarCodigo() {
+  Random random = Random();
+  int codigo = random.nextInt(999999);
+  return codigo;
+}
 class CuentaBancaria {
   String nombre;
   int documento;
-  int numeroDeCuenta;
+  int numeroDeCuenta = generarCodigo();
   double saldo = 50000;
 
-  CuentaBancaria(this.nombre, this.documento, this.numeroDeCuenta, this.saldo);
+  CuentaBancaria(this.nombre, this.documento, this.saldo);
 
   void consignar() {
     stdout.write("Ingrese la cantidad a consignar: ");
@@ -67,6 +73,6 @@ void menu (cuenta) {
   }
 }
 void main() {
-  CuentaBancaria cuenta1 = CuentaBancaria("Dilan", 12345678, 123456789, 50000.0);
+  CuentaBancaria cuenta1 = CuentaBancaria("Dilan", 12345678, 50000.0);
   menu(cuenta1);
 }
